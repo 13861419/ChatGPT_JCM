@@ -38,7 +38,8 @@ export default {
 #app {
   width: 100vw;
   height: 100vh;
-  background: url("@/assets/img/bj.png") no-repeat;
+  background-color:  rgba(205, 205, 216, 0.5);
+  //background: url("@/assets/img/bj.png") no-repeat;
   background-size:cover;
   position:absolute;
       

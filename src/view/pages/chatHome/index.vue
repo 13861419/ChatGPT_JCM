@@ -25,7 +25,7 @@
             <div class="setting">
               <span class="" @click="fileClick" :class="{ whiteText: cutSetting === 3 }">文件</span>
             </div>
-          </el-col>
+          </el-col>-->
         </el-row>
         <div v-show="cutSetting==0">
           <input class="inputs" v-model="modelSearch"  style=" margin-top: 10px;" />
@@ -126,13 +126,6 @@
       </div>
     </div>
     <div class="chatLeft" v-show="showSetupList">
-     
-        <el-card shadow="hover" id="jianbian" style="line-height: 120%;text-align: center;">
-            总余额：${{ this.moneryInfo.totalGranted | numFilterReservedTwo }}<br/>
-            可用余额：${{ this.moneryInfo.totalAvailable | numFilterReservedSix }}<br/>
-            消耗余额：${{ moneryInfo.totalUsed | numFilterReservedSix }}<br/>
-        </el-card>
-     
       <div class="online-person">
         <el-row :gutter="20">
           <el-col :span="6"><span class="setting" @click="SettingStatus=0" :class="{ active: SettingStatus === 0 }">对话</span></el-col>
@@ -147,9 +140,9 @@
         
         <div class="s-wrapper" style="height: 57vh;">
 
-          <div>
+          <!--<div>
             <input class="inputs" v-model="SettingInfo.KeyMsg" placeholder="请输入OpenAI KEY" style="width: 100%; margin-left: 0px;margin-right: 0px;"/>
-          </div>
+          </div>-->
             <!--对话设置-->
             <el-collapse-transition>
               <div v-show="SettingStatus==0">
@@ -599,7 +592,7 @@ export default {
         this.updateMoneyInfo()
       }).catch(e =>{
         this.$message({
-          message: "OpenAI Key有问题哦~",
+          message: "OpenAI Key有问题哦~1",
           type: "error",
         });
       })
@@ -610,7 +603,7 @@ export default {
         this.fineTuningList=res
       }).catch(e =>{
         this.$message({
-          message: "OpenAI Key有问题哦~",
+          message: "OpenAI Key有问题哦~2",
           type: "error",
         });
       })
@@ -622,7 +615,7 @@ export default {
         this.fileList=res
       }).catch(e =>{
         this.$message({
-          message: "OpenAI Key有问题哦~",
+          message: "OpenAI Key有问题哦~3",
           type: "error",
         });
       })
@@ -685,20 +678,20 @@ export default {
         this.personList = res;
         this.personListCache = res;
          //获取余额信息
-        getMoneyInfo(newVal).then((res) => {
+        /** getMoneyInfo(newVal).then((res) => {
           this.moneryInfo.totalGranted = res.total_granted;
           this.moneryInfo.totalUsed = res.total_used;
           this.moneryInfo.totalAvailable = res.total_available;
-        });
+        }); */
       }).catch(e =>{
         this.$message({
-          message: "OpenAI Key有问题哦~",
+          message: "OpenAI Key有问题哦~4",
           type: "error",
         });
       })
     },
     // 更新当前余额
-    updateMoneyInfo(){
+     /**updateMoneyInfo(){
       getMoneyInfo(this.SettingInfo.KeyMsg).then((res) => {
         this.$nextTick(() => {
           this.moneryInfo.totalGranted = res.total_granted;
@@ -706,7 +699,7 @@ export default {
           this.moneryInfo.totalAvailable = res.total_available;
         })
       })
-    },
+    },*/
     //创建会话
     newSession(){
       //获取当前会话长度
